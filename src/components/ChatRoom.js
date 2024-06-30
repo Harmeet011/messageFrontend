@@ -25,6 +25,7 @@ export default function ChatRoom(){
     return (
         <div>
             <h2>Chat Room</h2>
+            <h3>Test</h3>
             <ul>
                 {chatrooms.map((chatroom) => 
                     <li key={chatroom.id}>
