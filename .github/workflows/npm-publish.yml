@@ -41,3 +41,7 @@ jobs:
       # build the react app
       - name: Build
         run: npm run build
+
+      # Run Test
+      - name: Run Test
+        run: npm test
