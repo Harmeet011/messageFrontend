@@ -3,6 +3,7 @@ import TopBar from './components/TopBar';
 import { Route, Routes } from 'react-router';
 import ChatRoom from './components/ChatRoom';
 import Home from './components/Home';
+import NumberSumUp from './components/NumberSumUp';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/chatroom' element={<ChatRoom/>}/>
+        <Route path='/sumNumber' element={<NumberSumUp/>}/>
       </Routes>
     </div>
   );
