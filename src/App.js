@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router';
 import ChatRoom from './components/ChatRoom';
 import Home from './components/Home';
 import NumberSumUp from './components/NumberSumUp';
+import Login from './components/Login';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path='/' element={<Home/>}/>
         <Route path='/chatroom' element={<ChatRoom/>}/>
         <Route path='/sumNumber' element={<NumberSumUp/>}/>
+        <Route path='/login' element={<Login/>}/>
       </Routes>
     </div>
   );
