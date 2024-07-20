@@ -45,7 +45,7 @@ function Login() {
         setLogin_status("Login Success!");
         navigate("/");
       })
-      .catch((error) => {
+      .catch(() => {
         setLoading(false);
         setLogin_status("Username or Password is wrong!");
       });

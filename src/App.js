@@ -23,7 +23,7 @@ function App() {
       navigate('/login')
     }
 
-  },[token])
+  },[token, navigate])
 
   return (
     <div className="App">
