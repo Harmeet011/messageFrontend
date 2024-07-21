@@ -1,9 +1,8 @@
 import './App.css';
 import TopBar from './components/TopBar';
-import { Route, Routes, useNavigate } from 'react-router';
+import { Route, Routes, useLocation, useNavigate, Navigate } from 'react-router';
 import ChatRoom from './components/ChatRoom';
 import Home from './components/Home';
-import NumberSumUp from './components/NumberSumUp';
 import Login from './components/Login';
 import { useEffect, useState } from 'react';
 import localStorageService from './LocalStorageService';
@@ -11,6 +10,7 @@ import Register from './components/Register';
 
 function App() {
   const navigate = useNavigate()
+  const location = useLocation()	
   const token = localStorageService.get('auth-token')
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false)
 
@@ -20,10 +20,12 @@ function App() {
     }
     else {
       setIsUserLoggedIn(false)
-      navigate('/login')
+      if(location.pathname !== '/login' && location.pathname !== '/register'){
+        navigate('/login')
+      }
     }
 
-  },[token, navigate])
+  },[token, navigate, location.pathname])
 
   return (
     <div className="App">
@@ -32,9 +34,9 @@ function App() {
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/chatroom' element={<ChatRoom/>}/>
-        <Route path='/sumNumber' element={<NumberSumUp/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/register' element={<Register/>}/>
+        <Route path='*' element={<Navigate to="/" replace />}/>
       </Routes>
     </div>
   );
