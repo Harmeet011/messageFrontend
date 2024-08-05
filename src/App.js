@@ -7,6 +7,7 @@ import Login from './components/Login';
 import { useEffect, useState } from 'react';
 import localStorageService from './LocalStorageService';
 import Register from './components/Register';
+import CreateChatroom from "./components/CreateChatroom"
 
 function App() {
   const navigate = useNavigate()
@@ -37,6 +38,7 @@ function App() {
         <Route path='/login' element={<Login/>}/>
         <Route path='/register' element={<Register/>}/>
         <Route path='*' element={<Navigate to="/" replace />}/>
+          <Route path='/createChatroom' element={<CreateChatroom/>}/>
       </Routes>
     </div>
   );
