@@ -1,9 +1,12 @@
-import { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import { BaseUrl } from "../Constants";
 import axios from "axios";
+import {Button, Spinner} from "react-bootstrap";
+import {useNavigate} from "react-router";
 
 export default function ChatRoom(){
     const [chatrooms, setChatrooms] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         let config = {
@@ -25,6 +28,9 @@ export default function ChatRoom(){
     return (
         <div>
             <h2>Chat Room</h2>
+             <Button className="btn btn-primary" id={"addChatRoomBtn"} onClick={() => navigate("/createChatroom")}>
+          Create ChatRoom
+        </Button>
             <h3>Test</h3>
             <ul>
                 {chatrooms.map((chatroom) => 
