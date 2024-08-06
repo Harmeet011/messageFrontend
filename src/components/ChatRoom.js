@@ -3,12 +3,14 @@ import { BaseUrl } from "../Constants";
 import axios from "axios";
 import localStorageService from "../LocalStorageService";
 import Table from "react-bootstrap/Table";
-import { Spinner } from "react-bootstrap";
+import { Spinner, Button } from "react-bootstrap";
+import { useNavigate } from "react-router";
 
 export default function ChatRoom() {
   const [chatrooms, setChatrooms] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [users, setUsers] = useState({});
+  const navigate = useNavigate();
 
   useEffect(() => {
     setIsLoading(true);
@@ -56,8 +58,17 @@ export default function ChatRoom() {
   }, []);
 
   return (
-    <div>
-      <h2>Chat Rooms</h2>
+    <div className="container">
+       <div class="row justify-content-between align-items-center mt-4 mb-4">
+            <div class="col-auto">
+                <h2>Chat Rooms</h2>
+            </div>
+            <div class="col-auto">
+                <button class="btn btn-primary" id="addChatroomBtn" onClick={() => navigate("/createChatroom")}>
+                    Create Chatroom
+                </button>
+            </div>
+        </div>
       <Table striped bordered hover>
         <thead>
           <tr>
