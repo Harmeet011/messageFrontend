@@ -64,9 +64,9 @@ export default function ChatRoom() {
                 <h2>Chat Rooms</h2>
             </div>
             <div class="col-auto">
-                <button class="btn btn-primary" id="addChatroomBtn" onClick={() => navigate("/createChatroom")}>
+                <Button class="btn btn-primary" id="addChatroomBtn" onClick={() => navigate("/createChatroom")}>
                     Create Chatroom
-                </button>
+                </Button>
             </div>
         </div>
       <Table striped bordered hover>
