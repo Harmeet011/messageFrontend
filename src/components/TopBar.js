@@ -26,6 +26,7 @@ function TopBar() {
           >
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/chatroom">ChatRoom</Nav.Link>
+            <Nav.Link href="/login">Login</Nav.Link>
           </Nav>
           <Form className="d-flex">
             <Button variant='outline-danger' onClick={logoutUser}>Logout</Button>
