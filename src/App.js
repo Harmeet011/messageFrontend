@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 import localStorageService from './LocalStorageService';
 import Register from './components/Register';
 import CreateChatroom from "./components/CreateChatroom"
+import Users from './components/Users';
 
 function App() {
   const navigate = useNavigate()
@@ -35,10 +36,11 @@ function App() {
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/chatroom' element={<ChatRoom/>}/>
+        <Route path='/users' element={<Users/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/register' element={<Register/>}/>
         <Route path='*' element={<Navigate to="/" replace />}/>
-          <Route path='/createChatroom' element={<CreateChatroom/>}/>
+        <Route path='/createChatroom' element={<CreateChatroom/>}/>
       </Routes>
     </div>
   );
