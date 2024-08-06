@@ -10,6 +10,7 @@ export default function Users() {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
     const token = localStorageService.get("auth-token");
     let config = {
       method: "get",
@@ -27,6 +28,7 @@ export default function Users() {
         setUsers(response.data);
       })
       .catch((error) => {
+        setIsLoading(false);
         console.log(error);
       });
   }, []);
@@ -42,12 +44,12 @@ export default function Users() {
         <thead>
           <tr>
             <th>Id</th>
-            <th>Name</th>
-            <th>Email</th>
+            <th>Username</th>
+            <th>Email Address</th>
           </tr>
         </thead>
         <tbody>
-          {!isLoading && (
+          {isLoading && (
             <tr>
               <td colSpan="4">
                 <Spinner
