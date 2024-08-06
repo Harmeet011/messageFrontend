@@ -55,7 +55,7 @@ useEffect(() => {
             .then((response) => {
                 setLoading(false);
                 navigate("/chatroom")
-                // console.log(JSON.stringify(response.data)); add navigate to chatrrom
+
             })
             .catch((error) => {
                 setLoading(false);
