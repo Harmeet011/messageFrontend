@@ -11,3 +11,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* ToastComponent.css */
+.toast-container-fixed {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1050; /* Ensures it appears above other content */
+}
