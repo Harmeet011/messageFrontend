@@ -57,14 +57,33 @@ export default function ChatRoom() {
       });
   }, []);
 
+  const handleDelete = (id) => {
+    const token = localStorageService.get("auth-token");
+    let config = {
+      method: "delete",
+      maxBodyLength: Infinity,
+      url: BaseUrl + "chat/chatroom/" + id + "/",
+      headers: {
+        Authorization: `token ${token}`,
+      },
+    };
+    axios.request(config)
+    .then(() => {
+ 
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }
+
   return (
     <div className="container">
-       <div class="row justify-content-between align-items-center mt-4 mb-4">
-            <div class="col-auto">
+       <div className="row justify-content-between align-items-center mt-4 mb-4">
+            <div className="col-auto">
                 <h2>Chat Rooms</h2>
             </div>
-            <div class="col-auto">
-                <Button class="btn btn-primary" id="addChatroomBtn" onClick={() => navigate("/createChatroom")}>
+            <div className="col-auto">
+                <Button className="btn btn-primary" id="addChatroomBtn" onClick={() => navigate("/createChatroom")}>
                     Create Chatroom
                 </Button>
             </div>
@@ -101,6 +120,7 @@ export default function ChatRoom() {
               <td>{chatroom.name}</td>
               <td>{chatroom.members.map((member) => users[member]).join(", ")}</td>
               <td>{users[chatroom.created_by]}</td>
+              <td onClick={() => handleDelete(chatroom.id)}>delete</td>
             </tr>
           ))}
         </tbody>
