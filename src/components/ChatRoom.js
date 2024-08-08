@@ -142,6 +142,7 @@ export default function ChatRoom() {
               <td>{users[chatroom.created_by]}</td>
               <td>
                 <button
+                  id="deleteChatroomBtn"
                   onClick={() => handleDelete(chatroom.id)}
                   className="btn"
                 >
@@ -165,9 +166,7 @@ export default function ChatRoom() {
           ))}
         </tbody>
       </Table>
-      <ToastContainer
-        className="toast-container-fixed"
-      >
+      <ToastContainer className="toast-container-fixed">
         <Toast
           onClose={() => setShowToast(false)}
           show={showToast}
